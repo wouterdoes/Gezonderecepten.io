@@ -13,44 +13,35 @@
         <h1 class="text-2xl font-bold text-blue-700">Curry met Linzen en Kikkererwten</h1>
         <img src="https://ohmyfoodness.nl/wp-content/uploads/2019/04/linzen_kikkererwten-madras-feat.jpg" alt="Curry met linzen en kikkererwten" class="w-full h-auto rounded-lg mt-4">
         <p class="text-gray-600 mt-2">Een heerlijke en voedzame curry met linzen en kikkererwten, perfect voor een gezonde maaltijd.</p>
-        
         <div class="mt-4">
             <label for="rating" class="block text-gray-700">Geef een cijfer (1-10):</label>
             <input type="number" id="rating" min="1" max="10" class="border rounded p-2 w-20 text-center">
         </div>
-        
         <div class="mt-4">
             <label for="feedback" class="block text-gray-700">Toelichting:</label>
             <textarea id="feedback" rows="3" class="border rounded p-2 w-full" placeholder="Wat vond je ervan?"></textarea>
         </div>
-        
         <div class="mt-4">
             <button onclick="submitFeedback()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Verstuur beoordeling</button>
         </div>
-        
         <div class="mt-4">
             <button onclick="repeatDish()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">Voor herhaling vatbaar!</button>
         </div>
-        
         <p id="message" class="text-gray-700 mt-3"></p>
     </div>
-    
     <script>
         function submitFeedback() {
             const rating = document.getElementById('rating').value;
             const feedback = document.getElementById('feedback').value;
             const message = document.getElementById('message');
-            
             if (rating < 1 || rating > 10 || rating === "") {
                 message.textContent = 'Geef een cijfer tussen 1 en 10.';
                 message.style.color = 'red';
                 return;
             }
-            
             message.textContent = `Bedankt voor je beoordeling! Je gaf een ${rating}/10.\nToelichting: ${feedback}`;
             message.style.color = 'green';
         }
-        
         function repeatDish() {
             document.getElementById('message').textContent = 'Leuk dat je dit gerecht opnieuw wilt maken!';
             document.getElementById('message').style.color = 'blue';
